@@ -634,9 +634,9 @@ export default function ConferenceRegistration() {
       const result = await response.json();
       
       if (result.success) {
-        setSubmitMessage({ 
-          type: 'success', 
-          message: 'Registration successful! We have sent your details via email.' 
+        setSubmitMessage({
+          type: 'success',
+          message: 'Registration successful!'
         });
         
         // Reset form
