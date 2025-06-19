@@ -188,8 +188,8 @@
 //       }
 //     } catch (err) {
 //       console.error('Submission error:', err);
-//       setSubmitMessage({ 
-//         type: 'error', 
+//       setSubmitMessage({
+//         type: 'error',
 //         message: err instanceof Error ? err.message : 'Registration failed. Please try again.' 
 //       });
 //     } finally {
@@ -241,7 +241,7 @@
       //         to explore AI solutions addressing Next Generation Technological Growth in all the Technological
       //         domains driven by Artificial Intelligence such as Data Science and Advanced Computer Networking solutions, 
       //         Machine Manufacturing & operations, Construction technology and Management and so on.
-      //       </p>  
+      //       </p>
       //       <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
       //         <div className="flex items-center text-gray-700">
       //           <CalendarDays className="h-5 w-5 mr-2" />
@@ -300,8 +300,8 @@
 //             <CardContent className="space-y-6">
 //               {submitMessage.message && (
 //                 <div className={`p-4 rounded-md ${
-//                   submitMessage.type === 'success' 
-//                     ? 'bg-green-50 text-green-800' 
+//                   submitMessage.type === 'success'
+//                     ? 'bg-green-50 text-green-800'
 //                     : 'bg-red-50 text-red-800'
 //                 }`}>
 //                   {submitMessage.message}
@@ -314,20 +314,20 @@
 //                   <div className="grid md:grid-cols-2 gap-4">
 //                     <div className="space-y-2">
 //                       <Label htmlFor="firstName">First Name *</Label>
-//                       <Input 
+//                       <Input
 //                         id="firstName"
-//                         placeholder="Enter your first name" 
-//                         required 
+//                         placeholder="Enter your first name"
+//                         required
 //                         value={formData.firstName}
 //                         onChange={handleChange}
 //                       />
 //                     </div>
 //                     <div className="space-y-2">
 //                       <Label htmlFor="lastName">Last Name *</Label>
-//                       <Input 
+//                       <Input
 //                         id="lastName"
-//                         placeholder="Enter your last name" 
-//                         required 
+//                         placeholder="Enter your last name"
+//                         required
 //                         value={formData.lastName}
 //                         onChange={handleChange}
 //                       />
@@ -336,22 +336,22 @@
 //                   <div className="grid md:grid-cols-2 gap-4">
 //                     <div className="space-y-2">
 //                       <Label htmlFor="email">Email Address *</Label>
-//                       <Input 
+//                       <Input
 //                         id="email"
-//                         type="email" 
-//                         placeholder="your.email@example.com" 
-//                         required 
+//                         type="email"
+//                         placeholder="your.email@example.com"
+//                         required
 //                         value={formData.email}
 //                         onChange={handleChange}
 //                       />
 //                     </div>
 //                     <div className="space-y-2">
 //                       <Label htmlFor="phone">Phone Number *</Label>
-//                       <Input 
+//                       <Input
 //                         id="phone"
-//                         type="tel" 
-//                         placeholder="+91 9876543210" 
-//                         required 
+//                         type="tel"
+//                         placeholder="+91 9876543210"
+//                         required
 //                         value={formData.phone}
 //                         onChange={handleChange}
 //                       />
@@ -362,18 +362,18 @@
 //                 {/* File Upload Section */}
 //                 <div className="space-y-2">
 //                   <Label htmlFor="fileUpload">Upload Your Paper (PDF only) *</Label>
-//                   <Input 
+//                   <Input
 //                     id="fileUpload"
-//                     type="file" 
+//                     type="file"
 //                     accept=".pdf"
-//                     required 
+//                     required
 //                     onChange={handleFileChange}
 //                   />
 //                   <p className="text-sm text-gray-500">Please upload your research paper in PDF format(below 50kb)</p>
 //                 </div>
 
-//                 <Button 
-//                   type="submit" 
+//                 <Button
+//                   type="submit"
 //                   className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3"
 //                   disabled={isSubmitting}
 //                 >
@@ -400,7 +400,7 @@
 //                   <div>
 //                     <h3 className="font-semibold">Email</h3>
 //                     <p className="text-gray-600">
-//                       <a 
+//                       <a
 //                         href="mailto:kumarbid@gmail.com"
 //                         className="hover:text-blue-600 underline"
 //                       >
@@ -414,8 +414,8 @@
 //                   <div>
 //                     <h3 className="font-semibold">Phone</h3>
 //                     <p className="text-gray-600">
-//                       <a 
-//                         href="tel:+917892438079" 
+//                       <a
+//                         href="tel:+917892438079"
 //                         className="hover:text-blue-600 underline"
 //                       >
 //                         +91 7892438079
@@ -432,10 +432,10 @@
 //                   <div>
 //                     <h3 className="font-semibold">Venue</h3>
 //                     <p className="text-gray-600">
-//                       <a 
-//                         href="https://aiems.edu.in/" 
-//                         target="_blank" 
-//                         rel="noopener noreferrer" 
+//                       <a
+//                         href="https://aiems.edu.in/"
+//                         target="_blank"
+//                         rel="noopener noreferrer"
 //                         className="hover:text-blue-600 "
 //                       >
 //                         Amruta Institute of Engineering and Management Sciences (AIEMS)
@@ -656,8 +656,8 @@ export default function ConferenceRegistration() {
       }
     } catch (err) {
       console.error('Submission error:', err);
-      setSubmitMessage({ 
-        type: 'error', 
+      setSubmitMessage({
+        type: 'error',
         message: err instanceof Error ? err.message : 'Registration failed. Please try again.' 
       });
     } finally {
@@ -705,11 +705,11 @@ export default function ConferenceRegistration() {
               <span className="text-blue-700">(ICASNXT-25)</span>
             </h1>
             <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
-              This premier conference aims to bring together academicians, researchers and industry experts 
+              This premier conference aims to bring together academicians, researchers and industry experts
               to explore AI solutions addressing Next Generation Technological Growth in all the Technological
-              domains driven by Artificial Intelligence such as Data Science and Advanced Computer Networking solutions, 
+              domains driven by Artificial Intelligence such as Data Science and Advanced Computer Networking solutions,
               Machine Manufacturing & operations, Construction technology and Management and so on.
-            </p>  
+            </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
               <div className="flex items-center text-gray-700">
                 <CalendarDays className="h-5 w-5 mr-2" />
@@ -815,10 +815,10 @@ export default function ConferenceRegistration() {
                     </div>
                     <div className="space-y-2">
                       <Label htmlFor="phone">Phone Number *</Label>
-                      <Input 
+                      <Input
                         id="phone"
-                        type="tel" 
-                        placeholder="+91 9876543210" 
+                        type="tel"
+                        placeholder="+91 9876543210"
                         required 
                         value={formData.phone}
                         onChange={handleChange}
