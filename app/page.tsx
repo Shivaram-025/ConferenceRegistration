@@ -522,6 +522,8 @@
 //     </div>
 //   )
 // }
+
+
 "use client"
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -529,7 +531,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { CalendarDays, Globe, MapPin } from "lucide-react";
 import Link from "next/link";
-import { ChangeEvent, FormEvent, useState } from 'react';
+import { ChangeEvent, FormEvent, useEffect, useState } from 'react';
 
 interface FormData {
   firstName: string;
@@ -554,6 +556,35 @@ export default function ConferenceRegistration() {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitMessage, setSubmitMessage] = useState<SubmitMessage>({ type: '', message: '' });
+
+  // Add this state and effect at the top of your component
+  const [isScrolled, setIsScrolled] = useState(false)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.scrollY
+      setIsScrolled(scrollTop > 50) // Change header style after 50px scroll
+    }
+
+    window.addEventListener("scroll", handleScroll)
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
+
+  // Add smooth scroll function
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId)
+    if (element) {
+      const headerHeight = 80 // Account for fixed header height
+      const elementPosition = element.getBoundingClientRect().top + window.pageYOffset
+      const offsetPosition = elementPosition - headerHeight
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth",
+      })
+    }
+  }
+  //
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { id, value } = e.target;
@@ -668,7 +699,7 @@ export default function ConferenceRegistration() {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
-      <header className="bg-white shadow-sm border-b">
+      {/* <header className="bg-white shadow-sm border-b">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-4">
             <div className="flex items-center space-x-2">
@@ -676,13 +707,13 @@ export default function ConferenceRegistration() {
               <h1 className="text-2xl font-bold text-gray-900">ICASNXT-25</h1>
             </div>
             <nav className="hidden md:flex space-x-8">
-              <Link href="#home" className="text-gray-700 hover:text-blue-600 font-medium">
+              <Button onClick= {() => scrollToSection("home")} className="text-gray-700 hover:text-blue-600 font-medium transition-colors">
                 Home
-              </Link>
+              </Button>
               <Link href="#about" className="text-gray-700 hover:text-blue-600 font-medium">
                 About
               </Link>
-              <Link href="#speakers" className="text-gray-700 hover:text-blue-600 font-medium">
+              {/* <Link href="#speakers" className="text-gray-700 hover:text-blue-600 font-medium">
                 Speakers
               </Link>
               <Link href="#schedule" className="text-gray-700 hover:text-blue-600 font-medium">
@@ -694,10 +725,54 @@ export default function ConferenceRegistration() {
             </nav>
           </div>
         </div>
+      </header> */}
+
+      <header
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+          isScrolled ? "bg-white/95 backdrop-blur-md shadow-lg border-b" : "bg-white shadow-sm border-b"
+        }`}
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div
+            className={`flex justify-between items-center transition-all duration-300 ${isScrolled ? "py-3" : "py-4"}`}
+          >
+            <div className="flex items-center space-x-2">
+              <Globe className="h-8 w-8 text-blue-600" />
+              <h1 className="text-2xl font-bold text-gray-900">ICASNXT-25</h1>
+            </div>
+            <nav className="hidden md:flex space-x-8">
+              <button
+                onClick={() => scrollToSection("home")}
+                className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
+              >
+                Home
+              </button>
+              <button
+                onClick={() => scrollToSection("about")}
+                className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
+              >
+                About
+              </button>
+              <button
+                onClick={() => scrollToSection("schedule")}
+                className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
+              >
+                Schedule
+              </button>
+              <button
+                onClick={() => scrollToSection("register")}
+                className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
+              >
+                Register
+              </button>
+            </nav>
+          </div>
+        </div>
       </header>
 
+
             {/* Hero Section */}
-      <section id="home" className="bg-gradient-to-r from-blue-50 to-indigo-50 py-20">
+      <section id="home" className="bg-gradient-to-r from-blue-50 to-indigo-50 py-20 pt-36">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6">
@@ -728,7 +803,7 @@ export default function ConferenceRegistration() {
       </section>
       
       {/* About Section */}
-      <section id="about" className="py-20 bg-white">
+      <section id="about" className="py-20 bg-white pt-40 pb-60">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">About ICASNXT-25</h2>
@@ -753,7 +828,7 @@ export default function ConferenceRegistration() {
       </section>
 
       {/* Registration Section */}
-      <section id="register" className="py-20 bg-white">
+      <section id="register" className="py-30 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Conference Registration</h2>
