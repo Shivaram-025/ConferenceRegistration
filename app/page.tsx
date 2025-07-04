@@ -738,7 +738,15 @@ export default function ConferenceRegistration() {
           >
             <div className="flex items-center space-x-2">
               <Globe className="h-8 w-8 text-blue-600" />
-              <h1 className="text-2xl font-bold text-gray-900">ICASNXT-25</h1>
+              <h1 className="text-2xl font-bold text-gray-900">
+                <Link
+                  href="https://international-conference-git-master-simonleo28s-projects.vercel.app/"
+                  rel="noopener noreferrer"
+                  className="hover:text-blue-600 transition-colors cursor-pointer"
+                >
+                  ICASNXT-25
+                </Link>
+              </h1> 
             </div>
             <nav className="hidden md:flex space-x-8">
               <button
