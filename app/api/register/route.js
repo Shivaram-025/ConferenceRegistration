@@ -203,12 +203,15 @@ export async function POST(request) {
     // Extract form data
     const firstName = formData.get('firstName');
     const lastName = formData.get('lastName');
+    const organization = formData.get('organization');
+    const branch = formData.get('branch');
+    const theme = formData.get('theme');
     const email = formData.get('email');
     const phone = formData.get('phone');
     const file = formData.get('file');
 
     // Validate required fields
-    if (!firstName || !lastName || !email || !phone || !file) {
+    if (!firstName || !lastName || !organization || !branch || !theme || !email || !phone || !file) {
       return NextResponse.json({
         success: false,
         message: 'All fields including the PDF file are required'
@@ -239,6 +242,9 @@ export async function POST(request) {
       html: `
         <h1>New Registration</h1>
         <p><strong>Name:</strong> ${firstName} ${lastName}</p>
+        <p><strong>Organization:</strong> ${organization}</p>
+        <p><strong>Branch:</strong> ${branch}</p>
+        <p><strong>Theme:</strong> ${theme}</p>
         <p><strong>Email:</strong> ${email}</p>
         <p><strong>Phone:</strong> ${phone}</p>
         <p><strong>PDF Preview:</strong></p>

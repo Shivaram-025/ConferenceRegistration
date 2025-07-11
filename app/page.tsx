@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Bell, Calendar, CalendarDays, FileText, Globe, MapPin, Users } from "lucide-react";
 import Link from "next/link";
 import { ChangeEvent, FormEvent, useEffect, useState } from 'react';
@@ -10,6 +11,9 @@ import { ChangeEvent, FormEvent, useEffect, useState } from 'react';
 interface FormData {
   firstName: string;
   lastName: string;
+  organization: string;
+  branch: string;
+  theme: string;
   email: string;
   phone: string;
   fileUpload: File | null;
@@ -20,10 +24,38 @@ interface SubmitMessage {
   message: string;
 }
 
+const branches = [
+  "Computer Science & Engineering",
+  "Electronics & Communication Engineering",
+  "Mechanical Engineering",
+  "Civil Engineering",
+]
+
+const themes = [
+  "AI Applications in Healthcare, Agriculture & Education",
+  "AI E-Governance",
+  "Advanced Communication systems and Image Processing",
+  "Advanced Computing & Networking",
+  "Advanced Manufacturing and Operations Technologies",
+  "Artificial Intelligence & Data Science",
+  "Business Management, Business Analytics & Sustainable Management Practices",
+  "Cloud Computing",
+  "Construction and Management Technologies",
+  "Cybersecurity",
+  "Energy, Sustainability & Climate Change",
+  "Materials, Rare-earth & Critical Minerals",
+  "Robotics & Automation",
+  "Smart Cities & Mobility",
+  "VLSI Design & Embedded Systems"
+]
+
 export default function ConferenceRegistration() {
   const [formData, setFormData] = useState<FormData>({
     firstName: '',
     lastName: '',
+    organization: '',
+    branch: '',
+    theme: '',
     email: '',
     phone: '',
     fileUpload: null,
@@ -100,7 +132,7 @@ export default function ConferenceRegistration() {
     setSubmitMessage({ type: '', message: '' });
 
     // Validate required fields
-    if (!formData.firstName || !formData.lastName || !formData.email || !formData.phone || !formData.fileUpload) {
+    if (!formData.firstName || !formData.lastName || !formData.organization || !formData.branch || !formData.theme || !formData.email || !formData.phone || !formData.fileUpload) {
       setSubmitMessage({
         type: 'error',
         message: 'All fields are required'
@@ -123,6 +155,9 @@ export default function ConferenceRegistration() {
       const formDataToSend = new FormData();
       formDataToSend.append('firstName', formData.firstName);
       formDataToSend.append('lastName', formData.lastName);
+      formDataToSend.append('organization', formData.organization);
+      formDataToSend.append('branch', formData.branch);
+      formDataToSend.append('theme', formData.theme);
       formDataToSend.append('email', formData.email);
       formDataToSend.append('phone', formData.phone);
       formDataToSend.append('file', formData.fileUpload);
@@ -141,13 +176,16 @@ export default function ConferenceRegistration() {
       if (result.success) {
         setSubmitMessage({
           type: 'success',
-          message: 'Registration successful!'
+          message: 'Registration successful!\nShortlisted abstracts will receive an email regarding paper submission soon'
         });
-        
+
         // Reset form
         setFormData({
           firstName: '',
           lastName: '',
+          organization: '',
+          branch: '',
+          theme: '',
           email: '',
           phone: '',
           fileUpload: null,
@@ -178,7 +216,7 @@ export default function ConferenceRegistration() {
           isScrolled ? "bg-white/95 backdrop-blur-md shadow-lg border-b" : "bg-white shadow-sm border-b"
         }`}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-9xl mx-auto px-4 sm:px-6 lg:px-8">
           <div
             className={`flex justify-between items-center transition-all duration-300 ${isScrolled ? "py-3" : "py-4"}`}
           >
@@ -258,7 +296,9 @@ export default function ConferenceRegistration() {
               </div>
               <div className="flex items-center text-blue-100 bg-white/10 backdrop-blur-sm rounded-lg px-4 py-2">
                 <MapPin className="h-5 w-5 mr-2" />
-                <span className="font-medium">AIEMS, Bengaluru</span> 
+                <a href="https://maps.app.goo.gl/bQ4wM83wGDgEpJKz5" target="blank">
+                  <span className="font-medium">AIEMS, Bengaluru</span>
+                </a>
               </div>
             </div>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -394,7 +434,7 @@ export default function ConferenceRegistration() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Conference Registration</h2>
-            <p className="text-lg text-gray-600">Secure your spot at ICASNXT-25</p>
+            <p className="text-lg text-gray-600">Secure your spot at ICAINXT-26</p>
           </div>
 
           <Card>
@@ -413,18 +453,6 @@ export default function ConferenceRegistration() {
                 </div>
               )}
               <form className="space-y-6" onSubmit={handleSubmit}>
-                {/*Organization Name*/}
-                {/* <div className="space-y-2">
-                      <Label htmlFor="phone">Organization Name *</Label>
-                      <Input
-                        id="organization"
-                        type="tel"
-                        placeholder="Name of the organization"
-                        required
-                        value={formData.phone}
-                        onChange={handleChange}
-                      />
-                </div> */}
                 {/* Personal Information */}
                 <div className="space-y-4">
                   <h3 className="text-lg font-semibold text-gray-900">Personal Information</h3>
@@ -450,7 +478,69 @@ export default function ConferenceRegistration() {
                       />
                     </div>
                   </div>
+
+                  {/*Organization Name*/}
+                  <div className="space-y-2">
+                      <Label htmlFor="phone">Organization Name *</Label>
+                      <Input
+                        id="organization"
+                        placeholder="Name of the organization"
+                        required
+                        value={formData.organization}
+                        onChange={handleChange}
+                      />
+                  </div>
+
+                  {/* Academic Information */}
+                  <div className="space-y-4">
+                    <h3 className="text-lg font-semibold text-gray-900">Academic Information</h3>
+                    <div className="grid md:grid-cols-2 gap-4">
+                      {/* Branch Dropdown */}
+                      <div className="space-y-2">
+                        <Label htmlFor="branch">Branch/Department *</Label>
+                        <Select name="branch"
+                                value={formData.branch}
+                                onValueChange={(value) => setFormData({ ...formData, branch: value })}
+                                required
+                        >
+                          <SelectTrigger>
+                            <SelectValue placeholder="Select your branch" />
+                          </SelectTrigger>
+                          <SelectContent>
+                            {branches.map((branch) => (
+                              <SelectItem key={branch} value={branch}>
+                                {branch}
+                              </SelectItem>
+                            ))}
+                          </SelectContent>
+                        </Select>
+                      </div>
+
+                      {/* Theme Dropdown */}
+                      <div className="space-y-2">
+                        <Label htmlFor="theme">Research Theme *</Label>
+                        <Select name="theme"
+                                value={formData.theme}
+                                onValueChange={(value) => setFormData({...formData, theme: value})}
+                                required
+                        >
+                          <SelectTrigger>
+                            <SelectValue placeholder="Select research theme" />
+                          </SelectTrigger>
+                          <SelectContent>
+                            {themes.map((theme) => (
+                              <SelectItem key={theme} value={theme}>
+                                {theme}
+                              </SelectItem>
+                            ))}
+                          </SelectContent>
+                        </Select>
+                      </div>
+                    </div>
+                  </div>
+
                   <div className="grid md:grid-cols-2 gap-4">
+                    {/*Email Address*/}
                     <div className="space-y-2">
                       <Label htmlFor="email">Email Address *</Label>
                       <Input
@@ -462,6 +552,7 @@ export default function ConferenceRegistration() {
                         onChange={handleChange}
                       />
                     </div>
+                    {/*Phone Number*/}
                     <div className="space-y-2">
                       <Label htmlFor="phone">Phone Number *</Label>
                       <Input
@@ -479,11 +570,11 @@ export default function ConferenceRegistration() {
                 {/* File Upload Section */}
                 <div className="space-y-2">
                   <Label htmlFor="fileUpload">Upload Your Abstract *</Label>
-                  <Input 
+                  <Input
                     id="fileUpload"
-                    type="file" 
+                    type="file"
                     accept=".pdf"
-                    required 
+                    required
                     onChange={handleFileChange}
                   />
                   <p className="text-sm text-gray-500">
@@ -498,7 +589,7 @@ export default function ConferenceRegistration() {
                   className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3"
                   disabled={isSubmitting}
                 >
-                  {isSubmitting ? 'Processing...' : 'Complete Registration'}
+                  {isSubmitting ? 'Submitting...' : 'Complete Registration'}
                 </Button>
               </form>
             </CardContent>
@@ -517,9 +608,9 @@ export default function ConferenceRegistration() {
             <div>
               <h3 className="text-xl font-bold mb-4">Quick Links</h3>
               <ul className="space-y-2">
-                <li><Link href="#home" className="text-gray-400 hover:text-white">Home</Link></li>
-                <li><Link href="#about-college" className="text-gray-400 hover:text-white">About College</Link></li>
-                <li><Link href="#about-conference" className="text-gray-400 hover:text-white">About Conference</Link></li>
+                <li><Link href="https://international-conference-git-master-simonleo28s-projects.vercel.app/#home" className="text-gray-400 hover:text-white">Home</Link></li>
+                <li><Link href="https://international-conference-git-master-simonleo28s-projects.vercel.app/#about-college" className="text-gray-400 hover:text-white">About College</Link></li>
+                <li><Link href="https://international-conference-git-master-simonleo28s-projects.vercel.app/#about-conference" className="text-gray-400 hover:text-white">About Conference</Link></li>
                 <li><Link href="#speakers" className="text-gray-400 hover:text-white">Speakers</Link></li>
                 <li><a href="#register" className="text-gray-400 hover:text-white">Register</a></li>
               </ul>
