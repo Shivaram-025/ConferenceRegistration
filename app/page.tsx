@@ -302,9 +302,11 @@ export default function ConferenceRegistration() {
               </div>
             </div>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-blue-600 p-4 hover:bg-gray-200 text-white px-8 hover:text-blue-600 py-3 shadow-lg">
-                <Link href="#register">Register Now</Link>
-              </Button>
+              <Link href="#register" >
+                <Button size="lg" onClick={() => scrollToSection("register")} className="bg-blue-600 p-4 hover:bg-gray-200 text-white px-8 hover:text-blue-600 py-3 shadow-lg">
+                  Register Now
+                </Button>
+              </Link>
               <Button size="lg" className="border border-blue-600 hover:bg-blue-900 text-white px-8 py-3 shadow-lg">
                 <Link href="#paper">Submit Paper</Link>
               </Button>
