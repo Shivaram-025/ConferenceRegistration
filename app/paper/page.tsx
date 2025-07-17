@@ -4,7 +4,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Bell, Calendar, CalendarDays, FileText, Globe, MapPin, Users } from "lucide-react";
+import { Globe } from "lucide-react";
 import Link from "next/link";
 import { ChangeEvent, FormEvent, useEffect, useState } from 'react';
 
@@ -201,7 +201,7 @@ export default function ConferenceRegistration() {
       console.error('Submission error:', err);
       setSubmitMessage({
         type: 'error',
-        message: err instanceof Error ? err.message : 'Registration failed. Please try again.'
+        message: err instanceof Error ? err.message : 'Registration failed. Please try again.' 
       });
     } finally {
       setIsSubmitting(false);
@@ -262,208 +262,17 @@ export default function ConferenceRegistration() {
         </div>
       </header>
 
-
-      {/* Hero Section */}
-      <section
-          id="home"
-          className="relative bg-gradient-to-r from-blue-50 to-indigo-50 py-20 pt-36 min-h-screen flex items-center"
-          style={{
-            backgroundImage: `url('/aiems-image.jpg')`,
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            backgroundRepeat: "no-repeat",
-          }}
-        >
-        {/* Overlay for better text readability */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/50 to-gray-900/70"></div>
-
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <h1 className="text-3xl md:text-5xl font-bold text-white mb-6 drop-shadow-lg">
-              International Conference on AI solutions addressing Next Generation Technological Growth
-              <br />
-              <span className="text-blue-500">(ICAINXT-26)</span>
-            </h1>
-            <p className="text-xl text-blue-50 mb-8 max-w-5xl mx-auto drop-shadow-md">
-              This leading conference seeks to unite academics, researchers, and industry professionals to advance
-              AI-driven solutions for next-generation technological progress across diverse domains, including Data
-              Science, Advanced Computer Networking, Machine Manufacturing, Operations, Construction Technology, and more.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
-              <div className="flex items-center text-blue-100 bg-white/10 backdrop-blur-sm rounded-lg px-4 py-2">
-                <CalendarDays className="h-5 w-5 mr-2" />
-                <span className="font-medium">09th and 10th January 2026</span>
-              </div>
-              <div className="flex items-center text-blue-100 bg-white/10 backdrop-blur-sm rounded-lg px-4 py-2">
-                <MapPin className="h-5 w-5 mr-2" />
-                <a href="https://maps.app.goo.gl/bQ4wM83wGDgEpJKz5" target="blank">
-                  <span className="font-medium">AIEMS, Bengaluru</span>
-                </a>
-              </div>
-            </div>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="#register" >
-                <Button size="lg" onClick={() => scrollToSection("register")} className="bg-blue-600 p-4 hover:bg-gray-200 text-white px-8 hover:text-blue-600 py-3 shadow-lg">
-                  Submit Abstract
-                </Button>
-              </Link>
-              <Link href="/paper">
-                <Button size="lg" className="border border-blue-600 hover:bg-blue-900 text-white px-8 py-3 shadow-lg">
-                  Submit Paper
-                </Button>
-              </Link>
-              <Link href="/registration">
-                <Button size="lg" className="border border-blue-600 hover:bg-blue-900 text-white px-8 py-3 shadow-lg">
-                  Registration
-                </Button>
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Schedule Section */}
-      <section id="schedule" className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Important Dates</h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Mark your calendar with these key deadlines and dates for ICAINXT-26
-            </p>
-          </div>
-          
-          <div className="max-w-4xl mx-auto">
-            <div className="space-y-6">
-              {/* Row 1 */}
-              <div className="flex items-center p-6 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg border-l-4 border-blue-600 hover:shadow-md transition-shadow">
-                <div className="flex-shrink-0"> 
-                  <FileText className="h-8 w-8 text-blue-600" />
-                </div>
-                <div className="ml-6 flex-1">
-                  <h3 className="text-xl font-semibold text-gray-900">Abstract Submission deadline</h3>
-                  <p className="text-gray-600 mt-1">Submit your research abstracts for review</p>
-                </div>
-                <div className="text-right">
-                  <p className="text-2xl font-bold text-blue-600">15th August 2025</p>
-                  <p className="text-sm text-gray-500">11:59 PM IST</p>
-                </div>
-              </div>
-
-              {/* Row 2 */}
-              <div className="flex items-center p-6 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg border-l-4 border-blue-600 hover:shadow-md transition-shadow">
-                <div className="flex-shrink-0">
-                  <Bell className="h-8 w-8 text-blue-600" />
-                </div>
-                <div className="ml-6 flex-1">
-                  <h3 className="text-xl font-semibold text-gray-900">Notification of Abstract Acceptance</h3>
-                  <p className="text-gray-600 mt-1">Authors will be notified about abstract acceptance</p>
-                </div>
-                <div className="text-right">
-                  <p className="text-2xl font-bold text-blue-600">30th August 2025</p>
-                  <p className="text-sm text-gray-500">Via Email</p>
-                </div>
-              </div>
-
-              {/* Row 3 */}
-              <div className="flex items-center p-6 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg border-l-4 border-blue-600 hover:shadow-md transition-shadow">
-                <div className="flex-shrink-0">
-                  <FileText className="h-8 w-8 text-blue-600" />
-                </div>
-                <div className="ml-6 flex-1">
-                  <h3 className="text-xl font-semibold text-gray-900">Submission of Full Paper Deadline</h3>
-                  <p className="text-gray-600 mt-1">Submit complete research papers for publication</p>
-                </div>
-                <div className="text-right">
-                  <p className="text-2xl font-bold text-blue-600">30th September 2025</p>
-                  <p className="text-sm text-gray-500">11:59 PM IST</p>
-                </div>
-              </div>
-
-              {/* Row 4 */}
-              <div className="flex items-center p-6 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg border-l-4 border-blue-600 hover:shadow-md transition-shadow">
-                <div className="flex-shrink-0">
-                  <Users className="h-8 w-8 text-blue-600" />
-                </div>
-                <div className="ml-6 flex-1">
-                  <h3 className="text-xl font-semibold text-gray-900">Notification of Paper Acceptance</h3>
-                  <p className="text-gray-600 mt-1">Selected paper will be notified</p>
-                </div>
-                <div className="text-right">
-                  <p className="text-2xl font-bold text-blue-600">30th October 2025</p>
-                  <p className="text-sm text-gray-500">10:59 PM IST</p>
-                </div>
-              </div>
-
-              {/* Row 5 */}
-              <div className="flex items-center p-6 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg border-l-4 border-blue-600 hover:shadow-md transition-shadow">
-                <div className="flex-shrink-0">
-                  <Users className="h-8 w-8 text-blue-600" />
-                </div>
-                <div className="ml-6 flex-1">
-                  <h3 className="text-xl font-semibold text-gray-900">Registration Deadline</h3>
-                  <p className="text-gray-600 mt-1">Do payment and registration for the conference</p>
-                </div>
-                <div className="text-right">
-                  <p className="text-2xl font-bold text-blue-600">15th November 2025</p>
-                  <p className="text-sm text-gray-500">10:59 PM IST</p>
-                </div>
-              </div>
-
-              {/* Row 6 */}
-              <div className="flex items-center p-6 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg border-l-4 border-blue-600 hover:shadow-md transition-shadow">
-                <div className="flex-shrink-0">
-                  <Calendar className="h-8 w-8 text-blue-600" />
-                </div>
-                <div className="ml-6 flex-1">
-                  <h3 className="text-xl font-semibold text-gray-900">Conference Dates</h3>
-                  <p className="text-gray-600 mt-1">Join us for two days of cutting-edge AI research and networking</p>
-                </div>
-                <div className="text-right">
-                  <p className="text-2xl font-bold text-blue-600">09th - 10th January 2026</p>
-                  <p className="text-sm text-gray-500">AIEMS, Bengaluru</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      
-      {/* About Section */}
-      {/* <section id="about" className="py-20 bg-white pt-40 pb-60">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">About ICASNXT-25</h2>
-            <div className="text-lg text-gray-600 max-w-7xl mx-auto space-y-4">
-              <p>
-                The International Conference on AI Solutions Addressing Next Generation Technological Growth (ICASNXT-25) is a premier global forum scheduled to be
-                held on 26th–27th September 2025, aiming to bring together leading academicians, researchers, and industry professionals.
-                The event will explore cutting-edge AI-driven solutions that address challenges and opportunities across a broad spectrum of next-generation technological domains.
-              </p>
-              <p>
-                This conference serves as a dynamic platform for presenting novel ideas, research innovations, and real-world AI applications in fields such as Data Science,
-                Advanced Networking, Smart Cities, Robotics, Advanced Manufacturing, and Sustainable Technologies. With the rapid evolution of AI and its growing impact across industries,
-                ICASNXT-25 is designed to foster interdisciplinary collaboration and knowledge exchange.
-              </p>
-              <p>
-                All submitted papers must be in English, and selected high-quality 
-                papers will be published in Springer or Scopus-indexed publications, depending on publisher acceptance.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section> */}
-
-      {/* Abstract submission Section */}
-      <section id="register" className="py-20 bg-white">
+      {/* Paper Submission Section */}
+      <section id="paper-submission" className="py-20 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Conference Registration</h2>
-            <p className="text-lg text-gray-600">Secure your spot at ICAINXT-26</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Paper Submission</h2>
+            <p className="text-lg text-gray-600">Submit your full paper at ICAINXT-26</p>
           </div>
 
           <Card>
             <CardHeader>
-              <CardTitle>Abstract Form</CardTitle>
+              <CardTitle>Paper Submission Form</CardTitle>
               <CardDescription>Please fill out all required fields to complete your registration</CardDescription>
             </CardHeader>
             <CardContent className="space-y-6">
@@ -593,14 +402,14 @@ export default function ConferenceRegistration() {
 
                 {/* File Upload Section */}
                 <div className="space-y-2">
-                  <Label htmlFor="fileUpload">Upload Your Abstract *</Label>
+                  <Label htmlFor="fileUpload">Upload Your Full Paper *</Label>
                   <Input
                     id="fileUpload"
                     type="file"
                     accept=".pdf"
                     required
                     onChange={handleFileChange}
-                  />
+                  />  
                   <p className="text-sm text-gray-500">
                     {formData.fileUpload
                       ? `Selected file: ${formData.fileUpload.name} (${Math.round(formData.fileUpload.size/1024)}KB)`

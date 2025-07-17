@@ -75,7 +75,7 @@ const registrationSchema = new mongoose.Schema({
 
 // Remove this if you're getting duplicate index warnings
 // registrationSchema.index({ email: 1 }, { unique: true });
-
+  
 const Registration = mongoose.models.Registration || mongoose.model('Registration', registrationSchema);
 
 export default Registration;

@@ -49,7 +49,7 @@ export async function POST(request) {
     await transporter.sendMail({
       from: `"Conference Registration" <${process.env.EMAIL_USER}>`,
       to: process.env.RECIPIENT_EMAIL,
-      subject: 'New Abstract Registration',
+      subject: 'New Conference Registration',
       html: `
         <h1>New Registration</h1>
         <p><strong>Name:</strong> ${firstName} ${lastName}</p>
@@ -72,14 +72,14 @@ export async function POST(request) {
 
     return NextResponse.json({
       success: true,
-      message: 'Registration details sent successfully with PDF preview!'
+      message: 'Paper details sent successfully with PDF preview!'
     });
 
   } catch (error) {
     console.error('Email sending error:', error);
     return NextResponse.json({
       success: false,
-      message: error.message || 'Failed to send registration email'
+      message: error.message || 'Failed to send paper to email'
     }, { status: 500 });
   }
 }
