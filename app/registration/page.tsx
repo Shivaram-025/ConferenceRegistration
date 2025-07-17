@@ -197,7 +197,7 @@ export default function Registration() {
             </div>
             <nav className="hidden md:flex space-x-8">
               <button
-                onClick={() => scrollToSection("home")}
+                onClick={() => scrollToSection("https://conference-registration-omega.vercel.app/")}
         
                 className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
               >
@@ -299,7 +299,7 @@ export default function Registration() {
 
                   {/* Payment Acknowledgment Upload */}
                   <div className="space-y-2">
-                    <Label htmlFor="fileUpload">Upload Your Abstract *</Label>
+                    <Label htmlFor="fileUpload">Upload Your Payment Acknowledgement *</Label>
                     <Input
                       id="fileUpload"
                       type="file"
@@ -310,7 +310,7 @@ export default function Registration() {
                     <p className="text-sm text-gray-500">
                       {formData.fileUpload
                         ? `Selected file: ${formData.fileUpload.name} (${Math.round(formData.fileUpload.size / 1024)}KB)`
-                        : 'Abstract paper in PDF format (max 50KB)'}
+                        : 'Aknowledgemnt in PDF format (max 50KB)'}
                     </p>
                   </div>
 

@@ -101,8 +101,8 @@ export default function ConferenceRegistration() {
     if (e.target.files && e.target.files.length > 0) {
       const file = e.target.files[0];
       
-      // Validate file size (50KB = 50 * 1024 bytes)
-      if (file.size > 50 * 1024) {
+      // Validate file size (50KB = 15 * 1024 * 1024 bytes)
+      if (file.size > 15 * 1024 * 1024) {
         setSubmitMessage({
           type: 'error',
           message: 'File size must be 50KB or less'
@@ -176,7 +176,7 @@ export default function ConferenceRegistration() {
       if (result.success) {
         setSubmitMessage({
           type: 'success',
-          message: 'Registration successful!\nShortlisted abstracts will receive an email regarding paper submission soon'
+          message: 'Paper Submitted Successfully\n You will receive the notification of acceptance shortly'
         });
 
         // Reset form
@@ -234,17 +234,11 @@ export default function ConferenceRegistration() {
             </div>
             <nav className="hidden md:flex space-x-8">
               <button
-                onClick={() => scrollToSection("home")}
+                
                 className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
               >
                 Home
               </button>
-              {/* <button
-                onClick={() => scrollToSection("about")}
-                className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
-              >
-                About
-              </button> */}
               <button
                 onClick={() => scrollToSection("schedule")}
                 className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
@@ -409,11 +403,11 @@ export default function ConferenceRegistration() {
                     accept=".pdf"
                     required
                     onChange={handleFileChange}
-                  />  
+                  />
                   <p className="text-sm text-gray-500">
                     {formData.fileUpload
                       ? `Selected file: ${formData.fileUpload.name} (${Math.round(formData.fileUpload.size/1024)}KB)`
-                      : 'Abstract paper in PDF format (max 50KB)'}
+                      : 'Full paper in PDF format (max 15MB)'}
                   </p>
                 </div>
 

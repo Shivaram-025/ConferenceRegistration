@@ -280,7 +280,7 @@ export default function ConferenceRegistration() {
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-3xl md:text-5xl font-bold text-white mb-6 drop-shadow-lg">
-              International Conference on AI solutions addressing Next Generation Technological Growth
+              International Conference on AI Innovation for Next Generation Technologies
               <br />
               <span className="text-blue-500">(ICAINXT-26)</span>
             </h1>
@@ -340,7 +340,7 @@ export default function ConferenceRegistration() {
                   <FileText className="h-8 w-8 text-blue-600" />
                 </div>
                 <div className="ml-6 flex-1">
-                  <h3 className="text-xl font-semibold text-gray-900">Abstract Submission deadline</h3>
+                  <h3 className="text-xl font-semibold text-gray-900">Abstract Submission Deadline</h3>
                   <p className="text-gray-600 mt-1">Submit your research abstracts for review</p>
                 </div>
                 <div className="text-right">
