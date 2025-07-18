@@ -233,7 +233,7 @@ export default function ConferenceRegistration() {
             <div className="flex items-center space-x-2">
               <h1 className="text-2xl font-bold text-gray-900">
                 <Link
-                  href="https://international-conference-git-master-simonleo28s-projects.vercel.app/"
+                  href="https://icainxt.live/"
                   rel="noopener noreferrer"
                   className="hover:text-blue-600 transition-colors cursor-pointer"
                 >
@@ -646,9 +646,9 @@ export default function ConferenceRegistration() {
             <div>
               <h3 className="text-xl font-bold mb-4">Quick Links</h3>
               <ul className="space-y-2">
-                <li><Link href="https://international-conference-git-master-simonleo28s-projects.vercel.app/#home" className="text-gray-400 hover:text-white">Home</Link></li>
-                <li><Link href="https://international-conference-git-master-simonleo28s-projects.vercel.app/#about-college" className="text-gray-400 hover:text-white">About College</Link></li>
-                <li><Link href="https://international-conference-git-master-simonleo28s-projects.vercel.app/#about-conference" className="text-gray-400 hover:text-white">About Conference</Link></li>
+                <li><Link href="https://icainxt.live/" className="text-gray-400 hover:text-white">Home</Link></li>
+                <li><Link href="https://icainxt.live/#about-college" className="text-gray-400 hover:text-white">About College</Link></li>
+                <li><Link href="https://icainxt.live/#about-conference" className="text-gray-400 hover:text-white">About Conference</Link></li>
                 <li><Link href="#speakers" className="text-gray-400 hover:text-white">Speakers</Link></li>
                 <li><a href="#register" className="text-gray-400 hover:text-white">Register</a></li>
               </ul>
