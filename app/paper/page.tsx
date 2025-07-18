@@ -4,7 +4,6 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Globe } from "lucide-react";
 import Link from "next/link";
 import { ChangeEvent, FormEvent, useEffect, useState } from 'react';
 
@@ -221,7 +220,6 @@ export default function ConferenceRegistration() {
             className={`flex justify-between items-center transition-all duration-300 ${isScrolled ? "py-3" : "py-4"}`}
           >
             <div className="flex items-center space-x-2">
-              <Globe className="h-8 w-8 text-blue-600" />
               <h1 className="text-2xl font-bold text-gray-900">
                 <Link
                   href="https://international-conference-git-master-simonleo28s-projects.vercel.app/" 
@@ -233,24 +231,33 @@ export default function ConferenceRegistration() {
               </h1>
             </div>
             <nav className="hidden md:flex space-x-8">
-              <button
-                
-                className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
-              >
-                Home
-              </button>
-              <button
-                onClick={() => scrollToSection("schedule")}
-                className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
-              >
-                Schedule
-              </button>
-              <button
-                onClick={() => scrollToSection("register")}
-                className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
-              >
-                Submission
-              </button>
+              <h1 className="text-gray-700 hover:text-blue-600 font-medium transition-colors">
+                <Link
+                  href="https://international-conference-git-master-simonleo28s-projects.vercel.app/#home"
+                  rel="noopener noreferrer"
+                  className="hover:text-blue-600 transition-colors cursor-pointer"
+                >
+                  Home
+                </Link>
+              </h1>
+              <h1 className="text-gray-700 hover:text-blue-600 font-medium transition-colors">
+                <Link
+                  href="#schedule"
+                  rel="noopener noreferrer"
+                  className="hover:text-blue-600 transition-colors cursor-pointer"
+                >
+                  schedule
+                </Link>
+              </h1>
+              <h1 className="text-gray-700 hover:text-blue-600 font-medium transition-colors">
+                <Link
+                  href="#submission"
+                  rel="noopener noreferrer"
+                  className="hover:text-blue-600 transition-colors cursor-pointer"
+                >
+                  Submission
+                </Link>
+              </h1>
             </nav>
           </div>
         </div>
@@ -427,7 +434,7 @@ export default function ConferenceRegistration() {
       {/* Footer */}
       <footer className="bg-gray-900 text-white py-12">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-7">
             <div>
               <h3 className="text-xl font-bold mb-4">ICAINXT-26</h3>
               <p className="text-gray-400">International Conference on AI solutions addressing Next Generation Technological Growth</p>

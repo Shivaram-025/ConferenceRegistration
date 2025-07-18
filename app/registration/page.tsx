@@ -196,31 +196,33 @@ export default function Registration() {
               </h1>
             </div>
             <nav className="hidden md:flex space-x-8">
-              <button
-                onClick={() => scrollToSection("https://conference-registration-omega.vercel.app/")}
-        
-                className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
-              >
-                Home
-              </button>
-              {/* <button
-                onClick={() => scrollToSection("about")}
-                className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
-              >
-                About
-              </button> */}
-              <button
-                // onClick={() => scrollToSection("schedule")}
-                className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
-              >
-                Schedule
-              </button>
-              <button
-                onClick={() => scrollToSection("register")}
-                className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
-              >
-                Register
-              </button>
+              <h1 className="text-gray-700 hover:text-blue-600 font-medium transition-colors">
+                <Link
+                  href="https://international-conference-git-master-simonleo28s-projects.vercel.app/#home"
+                  rel="noopener noreferrer"
+                  className="hover:text-blue-600 transition-colors cursor-pointer"
+                >
+                  Home
+                </Link>
+              </h1>
+              <h1 className="text-gray-700 hover:text-blue-600 font-medium transition-colors">
+                <Link
+                  href="#schedule"
+                  rel="noopener noreferrer"
+                  className="hover:text-blue-600 transition-colors cursor-pointer"
+                >
+                  schedule
+                </Link>
+              </h1>
+              <h1 className="text-gray-700 hover:text-blue-600 font-medium transition-colors">
+                <Link
+                  href="#register"
+                  rel="noopener noreferrer"
+                  className="hover:text-blue-600 transition-colors cursor-pointer"
+                >
+                  Register
+                </Link>
+              </h1>
             </nav>
           </div>
         </div>
