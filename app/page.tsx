@@ -62,6 +62,7 @@ export default function ConferenceRegistration() {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitMessage, setSubmitMessage] = useState<SubmitMessage>({ type: '', message: '' });
+  const [isEnabled , setIsEnabled] = useState(false);
 
   // Add this state and effect at the top of your component
   const [isScrolled, setIsScrolled] = useState(false)
@@ -75,6 +76,15 @@ export default function ConferenceRegistration() {
     window.addEventListener("scroll", handleScroll)
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
+
+  useEffect(() => {
+  const today = new Date();
+  const enableDate = new Date("2025-08-30T00:00:00");
+
+  if (today >= enableDate) {
+    setIsEnabled(true);
+  }
+}, []);
 
   // Add smooth scroll function
   const scrollToSection = (sectionId: string) => {
@@ -300,16 +310,25 @@ export default function ConferenceRegistration() {
                   Submit Abstract
                 </Button>
               </Link>
-              <Link href="/paper">
+              {isEnabled ? (
+                <Link href="/paper">
                 <Button size="lg" className="border border-blue-600 hover:bg-blue-900 text-white px-8 py-3 shadow-lg">
                   Submit Paper
                 </Button>
               </Link>
-              <Link href="/registration">
+              ) : (
+                <Button disabled={true} size="lg" className="border border-blue-600 hover:bg-blue-900 text-white px-8 py-3 shadow-lg">Submit Paper</Button>
+              )
+              }
+              {isEnabled ? (
+                <Link href="/registration">
                 <Button size="lg" className="border border-blue-600 hover:bg-blue-900 text-white px-8 py-3 shadow-lg">
                   Registration
                 </Button>
               </Link>
+              ) : (
+                <Button disabled={true} size="lg" className="border border-blue-600 hover:bg-blue-900 text-white px-8 py-3 shadow-lg">Registration</Button>
+              )}
             </div>
           </div>
         </div>
@@ -620,7 +639,9 @@ export default function ConferenceRegistration() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-7">
             <div>
               <h3 className="text-xl font-bold mb-4">ICAINXT-26</h3>
-              <p className="text-gray-400">International Conference on AI solutions addressing Next Generation Technological Growth</p>
+              <p className="text-gray-400">International Conference on AI Innovation for Next Generation Technologies</p>
+              <br/>
+              <p className="text-gray-400">Email: <Link href="mailto:icainxt@aiems.edu.in">icainxt@aiems.edu.in</Link></p>
             </div>
             <div>
               <h3 className="text-xl font-bold mb-4">Quick Links</h3>
@@ -637,9 +658,10 @@ export default function ConferenceRegistration() {
               <address className="text-gray-400 not-italic">
                 Dr. Kumar B I D<br />
                 Professor & HoD, ISE Dept<br />
+                ICAINXT-26 Organizing Chair<br />
                 Amruta Institute of Engineering and Management Sciences<br />
                 Bangalore, Karnataka, India<br />
-                Email: dr.kumarbid@aiems.edu.in<br />
+                Email: <Link href="mailto:dr.kumarbid@aiems.edu.in">dr.kumarbid@aiems.edu.in</Link><br />
                 Phone: +91 78924 38079
               </address>
             </div>

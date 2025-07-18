@@ -437,7 +437,9 @@ export default function ConferenceRegistration() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-7">
             <div>
               <h3 className="text-xl font-bold mb-4">ICAINXT-26</h3>
-              <p className="text-gray-400">International Conference on AI solutions addressing Next Generation Technological Growth</p>
+              <p className="text-gray-400">International Conference on AI Innovation for Next Generation Technologies</p>
+              <br />
+              <p>Email: <Link href="mailto:icainxt@aiems.edu.in">icainxt@aiems.edu.in</Link></p>
             </div>
             <div>
               <h3 className="text-xl font-bold mb-4">Quick Links</h3>
@@ -454,9 +456,10 @@ export default function ConferenceRegistration() {
               <address className="text-gray-400 not-italic">
                 Dr. Kumar B I D<br />
                 Professor & HoD, ISE Dept<br />
+                ICAINXT-26 Organizing Chair<br />
                 Amruta Institute of Engineering and Management Sciences<br />
                 Bangalore, Karnataka, India<br />
-                Email: dr.kumarbid@aiems.edu.in<br />
+                Email: <Link href="mailto:dr.kumarbid@aiems.edu.in" className="hover:underline">dr.kumarbid@aiems.edu.in</Link><br />
                 Phone: +91 78924 38079
               </address>
             </div>
