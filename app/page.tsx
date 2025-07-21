@@ -300,7 +300,7 @@ export default function ConferenceRegistration() {
               <div className="flex items-center text-blue-100 bg-white/10 backdrop-blur-sm rounded-lg px-4 py-2">
                 <MapPin className="h-5 w-5 mr-2" />
                 <a href="https://maps.app.goo.gl/bQ4wM83wGDgEpJKz5" target="blank">
-                  <span className="font-medium">AIEMS, Bengaluru</span>
+                  <span className="font-medium">AIEMS, Bidadi, Bengaluru</span>
                 </a>
               </div>
             </div>
