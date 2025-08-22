@@ -622,8 +622,8 @@ export default function ConferenceRegistration() {
 
                 <Button
                   type="submit"
-                  className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3"
-                  disabled={isSubmitting}
+                  className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 "
+                  disabled={true}//later replace with 'isSubmitting'
                 >
                   {isSubmitting ? 'Submitting...' : 'Submit'}
                 </Button>
