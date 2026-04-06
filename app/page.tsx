@@ -331,7 +331,7 @@ export default function ConferenceRegistration() {
               )
               } */}
               {isEnabled ? (
-                <Link href="#">
+                <Link href="/">
                 <Button size="lg" className="border border-blue-600 hover:bg-blue-900 text-white px-8 py-3 shadow-lg">
                   Registration
                 </Button>
